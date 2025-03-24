@@ -3,6 +3,8 @@ import { Product } from './product.model.js';
 import { Branch } from './branch.model.js';
 import { Counter } from './counter.model.js';
 import { Order } from './order.model.js';
+import { Category } from './category.model.js';
+
 
 
 
@@ -13,5 +15,7 @@ export {
     Product,
     Branch,
     Counter,
-    Order
+    Order,
+    Category,
+
 }

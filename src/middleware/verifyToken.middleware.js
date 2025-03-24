@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import { ACCESS_TOKEN_SECRET } from "../config/config";
+import { ACCESS_TOKEN_SECRET } from "../config/config.js";
 
-export const verifyToken = async (req, reply, done) => {
+export const verifyToken = async (req, reply) => {
     try {
         const authHeader = req.headers['authorization'];
 

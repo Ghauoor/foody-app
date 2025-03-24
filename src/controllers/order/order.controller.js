@@ -100,7 +100,7 @@ export const confirmOrder = async (req, reply) => {
 }
 
 
-export const updateOrder = async (req, reply) => {
+export const updateOrderStatus = async (req, reply) => {
     try {
         const { orderId } = req.params;
         const { status, deliveryPersonLocation } = req.body;
