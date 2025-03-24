@@ -160,7 +160,25 @@ export const getOrders = async (req, reply) => {
 
         }
 
-        const order = await Order.find(query).populate('customer branch items.item deliveryPerson');
+        const order = await Order.find(query).populate('customer branch items.item deliveryPartner');
+
+        return reply.status(200).send(order);
+
+    } catch (error) {
+        return reply.status(500).send({ message: 'Internal server error', error: error.message });
+    }
+}
+
+
+export const getOrderById = async (req, reply) => {
+    try {
+        const { orderId } = req.params;
+
+        const order = await Order.findById(orderId).populate('customer branch items.item deliveryPartner');
+
+        if (!order) {
+            return reply.status(404).send({ message: 'Order not found' });
+        }
 
         return reply.status(200).send(order);
 
